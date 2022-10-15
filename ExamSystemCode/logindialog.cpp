@@ -41,7 +41,7 @@ void LoginDialog::on_loginBtn_clicked()
     }
 
     //打开文件
-    QString filename = "../account.txt";
+    QString filename = "account.txt";
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QMessageBox::information(this, "提示", "文件打开失败");
@@ -71,5 +71,11 @@ void LoginDialog::on_loginBtn_clicked()
         return;
     }
 
-    QMessageBox::information(this, "提示", "欢迎进入科目一考试系统");
+    done(Accepted);
 }
+
+void LoginDialog::on_cancelBtn_clicked()
+{
+    done(Rejected);
+}
+
